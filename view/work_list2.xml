@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<!-- This file is part of the project_state_by_button module for Tryton.
+The COPYRIGHT file at the top level of this repository contains the full
+copyright notices and license terms. -->
+<data>
+    <xpath expr="/tree/field[@name='state']"
+            position="after">
+        <button name="open" string="Open"/>
+        <button name="done" string="Done"/>
+    </xpath>
+</data>

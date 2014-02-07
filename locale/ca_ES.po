@@ -1,0 +1,11 @@
+# 
+msgid ""
+msgstr "Content-Type: text/plain; charset=utf-8\n"
+
+msgctxt "view:project.work:"
+msgid "Done"
+msgstr "Tanca"
+
+msgctxt "view:project.work:"
+msgid "Open"
+msgstr "Obre"
