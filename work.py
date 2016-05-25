@@ -28,13 +28,9 @@ class Work:
     @classmethod
     @ModelView.button
     def open(cls, works):
-        for work in works:
-            work.state = 'opened'
-            work.save()
+        cls.write(works, {'state': 'opened'})
 
     @classmethod
     @ModelView.button
     def done(cls, works):
-        for work in works:
-            work.state = 'done'
-            work.save()
+        cls.write(works, {'state': 'done'})
