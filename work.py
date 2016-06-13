@@ -18,10 +18,10 @@ class Work:
         cls.state.readonly = True
         cls._buttons.update({
                 'open': {
-                    'invisible': Eval('state') == 'opened',
+                    'invisible': Eval('state') != 'done',
                     },
                 'done': {
-                    'invisible': Eval('state') == 'done',
+                    'invisible': Eval('state') != 'opened',
                     },
                 })
 
