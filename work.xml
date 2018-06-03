@@ -15,5 +15,18 @@ copyright notices and license terms. -->
             <field name="inherit" ref="project.work_view_form"/>
             <field name="name">work_form</field>
         </record>
+
+        <record model="ir.model.button" id="project_open_button">
+            <field name="name">open</field>
+            <field name="string">Open</field>
+            <field name="model" search="[('model', '=', 'project.work')]"/>
+        </record>
+
+        <record model="ir.model.button" id="project_done_button">
+            <field name="name">done</field>
+            <field name="string">Done</field>
+            <field name="model" search="[('model', '=', 'project.work')]"/>
+        </record>
+
     </data>
 </tryton>
