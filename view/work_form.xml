@@ -5,6 +5,8 @@ copyright notices and license terms. -->
 <data>
     <xpath expr="/form/notebook/page/group/group[@id='buttons']"
             position="inside">
+        <label name="active"/>
+        <field name="active"/>
         <button name="open" string="Open" icon="tryton-go-previous"/>
         <button name="done" string="Done" icon="tryton-go-next"/>
     </xpath>
