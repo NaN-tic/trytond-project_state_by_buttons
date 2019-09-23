@@ -49,20 +49,40 @@ class Work(metaclass=PoolMeta):
 
     @classmethod
     def search_active(cls, name, clause):
-        operator = clause[1] == '=' and 1 or -1
-        operand = clause[2] and 1 or -1
-        sign = operator * operand
-
-        if sign > 0:
-            return ['OR', [
-                    ('type', '=', 'task')
-                    ], [
-                    ('type', '=', 'project'),
-                    ('state', '=', 'opened'),
-                    ]
-                ]
-        else:
-            return [
+        pos = ['OR', [
+            ('type', '=', 'task')
+            ], [
+            ('type', '=', 'project'),
+            ('state', '=', 'opened'),
+            ]
+        ]
+        neg = ['OR', [
+                ('type', '=', 'task')
+                ],[
                 ('type', '=', 'project'),
                 ('state', '=', 'done'),
                 ]
+            ]
+
+        operator = clause[1]
+        operand = clause[2]
+        res = []
+        if operator == 'in':
+            if True in operand and False in operand:
+                res = ['OR', pos, neg]
+            elif True in operand:
+                res = pos
+            elif False in operand:
+                res = neg
+        elif operator in ('=', '!='):
+            operator = operator == '=' and 1 or -1
+            operand = operand and 1 or -1
+            sign = operator * operand
+
+            if sign > 0:
+                res = pos
+            else:
+                res = neg
+        if not res:
+            res = pos
+        return res
