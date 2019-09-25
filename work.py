@@ -1,6 +1,8 @@
 # This file is part of the project_state_by_button module for Tryton.
 # The COPYRIGHT file at the top level of this repository contains the full
 # copyright notices and license terms.
+from datetime import datetime
+
 from trytond.model import ModelView, fields
 from trytond.pool import PoolMeta
 from trytond.pyson import Eval
@@ -13,6 +15,7 @@ class Work(metaclass=PoolMeta):
     __name__ = 'project.work'
     active = fields.Function(fields.Boolean('Active'), 'get_active',
         searcher='search_active')
+    closing_date = fields.DateTime('Closing Date', readonly=True)
 
     @classmethod
     def __setup__(cls):
@@ -35,7 +38,10 @@ class Work(metaclass=PoolMeta):
     @classmethod
     @ModelView.button
     def done(cls, works):
-        cls.write(works, {'state': 'done'})
+        cls.write(works, {
+                'state': 'done',
+                'closing_date': datetime.now().replace(microsecond=0)
+                })
 
     @classmethod
     def get_total(cls, works, names):
