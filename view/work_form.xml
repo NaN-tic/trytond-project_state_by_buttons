@@ -3,6 +3,15 @@
 The COPYRIGHT file at the top level of this repository contains the full
 copyright notices and license terms. -->
 <data>
+    <xpath expr="/form/notebook/page/field[@name='total_effort']"
+            position="after">
+        <newline/>
+        <label name="closing_date"/>
+        <group id="closing_date" col="2">
+            <field name="closing_date" widget="date"/>
+            <field name="closing_date" widget="time"/>
+        </group>
+    </xpath>
     <xpath expr="/form/notebook/page/group/group[@id='buttons']"
             position="inside">
         <label name="active"/>
