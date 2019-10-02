@@ -24,9 +24,11 @@ class Work(metaclass=PoolMeta):
         cls._buttons.update({
                 'open': {
                     'invisible': Eval('state') != 'done',
+                    'icon': 'tryton-back',
                     },
                 'done': {
                     'invisible': Eval('state') != 'opened',
+                    'icon': 'tryton-forward',
                     },
                 })
 
