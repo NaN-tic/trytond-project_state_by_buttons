@@ -5,7 +5,7 @@ copyright notices and license terms. -->
 <data>
     <xpath expr="/tree/field[@name='state']"
             position="after">
-        <button name="open" string="Open" tree_invisible="1"/>
-        <button name="done" string="Done" tree_invisible="1"/>
+        <button name="open" tree_invisible="1"/>
+        <button name="done" tree_invisible="1"/>
     </xpath>
 </data>
